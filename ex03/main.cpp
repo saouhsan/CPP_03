@@ -6,29 +6,37 @@
 
 int main(void)
 {
-    ScavTrap TheDoctor("The Doctor ");
-    FragTrap Cybermen("Cybermen ");
-    ClapTrap Dalek("Dalek ");
-
+    DiamondTrap TheDoctor("The Doctor ");
+    DiamondTrap Cybermen("Cybermen ");
+    DiamondTrap Dalek("Dalek ");
+    DiamondTrap Potts(Cybermen);
+    
+    std::cout << "-------------------" << std::endl;
+    TheDoctor.whoAmI();
+    std::cout << "-------------------" << std::endl;
+    Cybermen.whoAmI();
+    std::cout << "-------------------" << std::endl;
+    Dalek.whoAmI();
+    std::cout << "-------------------" << std::endl;
+    std::cout << "-------------------" << std::endl;
+    Potts.whoAmI();
+    std::cout << "-------------------" << std::endl;
+    Potts = Dalek;
+    Potts.whoAmI();
+    std::cout << "-------------------" << std::endl;
+    std::cout << "-------------------" << std::endl;
+    std::cout << "-------------------" << std::endl;
 
     TheDoctor.attack("Dalek");
+    std::cout << "-------------------" << std::endl;
     Dalek.takeDamage(TheDoctor.get_attack_damage());
-
+    std::cout << "-------------------" << std::endl;
     Dalek.beRepaired(5);
-
+    std::cout << "-------------------" << std::endl;
     TheDoctor.attack("Cybermen");
+    std::cout << "-------------------" << std::endl;
     Cybermen.takeDamage(TheDoctor.get_attack_damage());
 
-    TheDoctor.guardGate();
-    Cybermen.attack("The Doctor");
-    TheDoctor.takeDamage(Cybermen.get_attack_damage());
-    TheDoctor.beRepaired(12);
-    Cybermen.highFivesGuys();
-
-   // Dalek.guardGate();
-   // Dalek.highFivesGuys();
-   // Cybermen.guardGate();
-   // TheDoctor.highFivesGuys();
 
     return (0);
 }
